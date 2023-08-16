@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VistaFormulario</title>
+
+    <style>
+        .container {
+            margin: 10px; /* Margen entre los vínculos */
+            padding: 10px 20px; /* Relleno (espacio dentro del vínculo) */
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <h1> Formulario Datos Personales</h1>
+
+        <form action="/Home/FormularioPOST" method="post">
+            <label>Nombre</label>
+            <input type="text" name="Nombre" />
+            <br /><br />
+
+            <label>Apellido Paterno</label>
+            <input type="text" name="Paterno" />
+            <br /><br />
+
+            <label>Apellido Materno</label>
+            <input type="text" name="Materno" />
+            <br /><br />
+
+            <label>Edad</label>
+            <input type="number" name="Edad" />
+            <br /><br />
+
+            <label>E-Mail</label>
+            <input type="text" name="Correo" />
+            <br /><br />
+
+            <a href="/Home/Index" class="container">Regresar</a>
+            <input type="submit" value="Aceptar" class="container" />
+        </form>
+
+    </div>
+</body>
+</html>

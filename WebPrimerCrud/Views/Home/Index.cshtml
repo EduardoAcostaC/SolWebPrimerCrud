@@ -1,0 +1,73 @@
+﻿@using System.Data
+
+@model DataTable 
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        .boton {
+            background-color: green;
+            color: white;
+            padding: 15px;
+            border-radius: 3px;
+            text-decoration: none;
+        }
+    </style>
+
+    <link href="~/Styles/bootstrap.css" rel="stylesheet"/>
+
+</head>
+<body>
+    <div class="container"> 
+        <h1 class="display-1"> Mi Primer CRUD</h1>
+
+        <a href="/Home/AbrirConexion">Probar Conexión</a>
+        <h3>@TempData["conexion"]</h3>
+
+        <a class="btn btn-success" href="/Home/IrFormulario">Agregar </a>
+
+        <h4>@TempData["mensaje"]</h4>
+
+        <!-- Tabla -->
+        <table class="table table-light table-stripped table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                    <th>Edad</th>
+                    <th>E-Mail</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (DataRow fila in Model.Rows) 
+                {
+                    <tr>
+                        <td> @fila["idAlumno"]</td>
+                        <td> @fila["Nombre"]</td>
+                        <td> @fila["apellidoPaterno"]</td>
+                        <td> @fila["apellidoMaterno"]</td>
+                        <td> @fila["Edad"]</td>
+                        <td> @fila["Correo"]</td>
+                        <td>
+                            <a class="btn btn-primary" href="/Home/Edicion?idAlumno=@fila["idAlumno"]"> Editar </a>
+                            <a class="btn btn-danger" href="/Home/Eliminar?idAlumno=@fila["idAlumno"]"> Eliminar </a>
+                        </td>
+                    </tr>
+                 }
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>

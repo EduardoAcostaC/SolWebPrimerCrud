@@ -1,0 +1,55 @@
+﻿
+@model System.Data.DataRow
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VistaEditar</title>
+    <style>
+        .container {
+            margin: 10px; /* Margen entre los vínculos */
+            padding: 10px 20px; /* Relleno (espacio dentro del vínculo) */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1> Editar Datos Personales</h1>
+
+        <form action="/Home/Actualizar" method="post">
+
+            <input type="hidden" name="idAlumno" value="@Model["idAlumno"]" />
+
+            <label>Nombre</label>
+            <input type="text" name="Nombre" value="@Model["Nombre"]" />
+            <br /><br />
+
+            <label>Apellido Paterno</label>
+            <input type="text" name="Paterno" value="@Model["apellidoPaterno"]" />
+            <br /><br />
+
+            <label>Apellido Materno</label>
+            <input type="text" name="Materno" value="@Model["apellidoMaterno"]" />
+            <br /><br />
+
+            <label>Edad</label>
+            <input type="number" name="Edad" value="@Model["Edad"]" />
+            <br /><br />
+
+            <label>E-Mail</label>
+            <input type="text" name="Correo" value="@Model["Correo"]" />
+            <br /><br />
+
+            <a href="/Home/Index" class="container">Regresar</a>
+            <input type="submit" value="Guardar" class="container" />
+        </form>
+    </div>
+</body>
+</html>
